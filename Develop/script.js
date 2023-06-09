@@ -1,90 +1,70 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var upperCase = [
-	"A",
-	"B",
-	"C",
-	"D",
-	"E",
-	"F",
-	"G",
-	"H",
-	"I",
-	"J",
-	"K",
-	"L",
-	"M",
-	"N",
-	"O",
-	"P",
-	"Q",
-	"R",
-	"S",
-	"T",
-	"U",
-	"V",
-	"W",
-	"X",
-	"Y",
-	"Z",
-];
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = lowerCase.toUpperCase();
+var numbers = "1234567890";
+var specialCharacters = "!@#$%&*_";
 
-var lowerCase = upperCase.toLowerCase();
-
-var randomPasswordArray = [];
+var length = 0;
+var randomPasswordString = "";
 
 function generatePassword() {
-	// variable to hold password criteria to select random
-
-	// create character variable to store password length
-	var passwordLength = window.prompt(
-		"Password length must be between 8 - 128 characters. \nEnter Password Length:"
+	window.alert(
+		"Choose at LEAST ONE of the following four password criteria, then enter password LENGTH when prompted. \n\nClick OK to Start"
 	);
-	// check if a number data is returned
 
-	// check if number returned is min 8 & max 128 (validate input)
-	if (passwordLength >= 8 && passwordLength <= 128) {
-		passwordLength = length; // NEED TO FIX THIS
-		window.alert(
-			"Thanks. The following prompts can set the type of characters to include in your password. \nPlease choose at least one of the following options."
-		);
-	} else if (passwordLength < 8 && passwordLength < 128) {
-		return passwordLength;
-		// If nothing is entered
-	} else {
-		return;
+	var passwordLowerCase = window.confirm(
+		"Include \n\nlowercase letters? \n\nSelect OK for Yes or Cancel for No"
+	);
+  if (passwordLowerCase) {
+    randomPasswordString = randomPasswordString.concat(lowerCase);
+    console.log(randomPasswordString);
 	}
 
 	var passwordUpperCase = window.confirm(
-		"Generate a password that includes: \nUPPERCASE letters? \nSelect OK for Yes or Cancel for No"
+		"Include \n\nUPPERCASE letters? \n\nSelect OK for Yes or Cancel for No"
 	);
 	if (passwordUpperCase) {
-    passwordUpperCase = upperCase;
-    randomPasswordArray.push(upperCase);
+    randomPasswordString = randomPasswordString.concat(upperCase);
+    console.log(randomPasswordString);
 	}
 
-
-	var passwordLowerCase = window.confirm(
-		"Generate a password that includes: \nlowercase letters? \nSelect OK for Yes or Cancel for No"
+	var passwordNumbers = window.confirm(
+		"Include Numbers? \n\n OK for Yes or Cancel for No"
 	);
-	if (passwordLowerCase) {
-    passwordLowerCase = lowerCase;
-    randomPasswordArray.push(lowerCase);
+	if (passwordNumbers) {
+    randomPasswordString = randomPasswordString.concat(numbers);
+    console.log(randomPasswordString);
 	}
 
+	var passwordSpecialCharacters = window.confirm(
+		"Inlcude Special Characters? \n\nOK for Yes or Cancel for No"
+	);
+  if (passwordSpecialCharacters) {
+    randomPasswordString = randomPasswordString.concat(specialCharacters);
+		console.log(randomPasswordString);
+	} else {
+		alert("Did not meet password criteria. Please start again.");
+		return;
+	}
 
-  var passwordNumbers = window.confirm(
-		"Generate a password that includes: \nnumbers? \nSelect OK for Yes or Cancel for No"
-  );
+	var passwordLength = window.prompt(
+		"Password length must be between 8 - 128 characters. \nEnter Password Length:"
+	);
 
-}
+	if (passwordLength >= 8 && passwordLength <= 128) {
+		passwordLength = length;
+	} else {
+		alert(
+			"Password length must be a minimum of 8 characters and maximum of 128 characters. Please start again."
+		);
+		return;
+  }
+  
+};
 
 
-// window.confirm()  Generate a password that includes: \nspecial characters? \n('\u0021', '\u0023', '\u0024', '\n0025', '\u0026', '\u002A', '\u003F', '\u005F') \nSelect OK for Yes or Cancel for No
-// validate at least one was chosen else alert(To generate a password you must select at least ONE option from the following prompts)
-
-// create variables/arrays to hold each criteria (numbers, special, a-z & a-z.toLowercase)
 // join arrays into one array based on criteria that returns true
 // for loop to loop over array and randomly output array elements to match # of characters
 // .toString() to convert into a string
