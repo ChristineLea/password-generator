@@ -54,7 +54,9 @@ function generatePassword() {
 	);
 
 	if (passwordLength >= 8 && passwordLength <= 128) {
-		length = +passwordLength;
+		+passwordLength;
+		console.log(passwordLength);
+		length = passwordLength;
 	} else {
 		alert(
 			"Password length must be a minimum of 8 characters and maximum of 128 characters. Please start again."
@@ -62,14 +64,15 @@ function generatePassword() {
 		return;
 	}
 
-  for (var i = 0; i < randomPasswordString.length; i++) {
-		var generateRandomPassword = randomPasswordString.charAt(
-			Math.random() * length + 1
+	var generateRandomPassword = " ";
+	const generatePasswordLength = randomPasswordString.length;
+	for (var i = 0; i < length; i++) {
+		generateRandomPassword += randomPasswordString.charAt(
+			Math.floor(Math.random() * generatePasswordLength)
 		);
-		// randomPasswordString.charAt(i);
 	}
 	return generateRandomPassword;
-}
+};
 
 // Write password to the #password input
 function writePassword() {
