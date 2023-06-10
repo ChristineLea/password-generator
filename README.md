@@ -9,21 +9,24 @@ I created pseudo-code to determine how best to create the application.   As I am
 
 **Issues I encountered & how I overcame them** 
 
- 1. Adding chosen character type/s to an array to generate random password.   
- 
-    - This was solved by using string values to hold the character types instead of arrays, then use the .concat() method to add each selected character type. I then tested this with console.log()
+ 1. Adding chosen character type/s to an array to generate random password. 
+ - SOLVED by using string values to hold the character types instead of arrays.
+ - Used .concat() method to add each selected character type 
+ - Tested with console.log()
 
   2. Generating the password to the length chosen by the user. 
+  - For loop condition was set to the string of character's length.
+  - SOLVED by updating the for loop condition to be set at the user's chosen length.
 
-    - I updated the for loop condition to be set at the user length, instead of the string of characters length.
+  3. Validation of the password criteria was not working as expected when I tested in the browser. 
+  - SOLVED Add an IF statement to check if all criteria was NOT met.
+  - Exit the function and alert the user.  
 
-  3. Validation of the password criteria was not working as expected when I tested in the browser.     
-
-    - I updated my code and added an IF statement to check if all criteria was NOT met, then exit the function and alert the user.  
-
-  4. Previous user selections were not been cleared if the password generator was run multiple times in the browser.     
-
-    - On line 107, I updated the value of the variable which held user criteria selections to it's initial value of an empty string.
+  4. Previous user selections were not been cleared if the password generator was run multiple times in the browser. 
+  - SOLVED On line 107
+  - Update the value of the variable randomPasswordString
+  - This held the user criteria selections.
+  - Set it to the initial value of an empty string.
 
 
 ## Installation
