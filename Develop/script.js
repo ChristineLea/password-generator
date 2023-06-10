@@ -14,6 +14,7 @@ var length = 0;
 
 // 3. The generatePassword function is invoked.
 function generatePassword() {
+
 	// alert() user with instructions.
 	window.alert(
 		"PASSWORD GENERATOR: \nWhen prompted: \n\n1. Enter password length (Min. 8 - Max. 128 characters) \n\n2. Choose at least one password criteria to include.  \n\nClick OK to Start"
@@ -71,7 +72,7 @@ function generatePassword() {
 		randomPasswordString = randomPasswordString.concat(numbers);
 	}
 
-	// Validate password criteria is met
+	// Validate password criteria is met. If all criteria is false, criteria is not met. Exit the function.
 	if (
 		!passwordSpecialCharacters &&
 		!passwordLowerCase &&
@@ -82,15 +83,14 @@ function generatePassword() {
 			"Password cannot be generated if no password criteria is selected. Please start again."
 		);
 		return;
-	} else {
-		window.alert("\n Your password will be generated and displayed on screen. \n\nThanks for using our random password generator.")
-	}
+	};
 
+	// Variable will be given value of the randomly generated password.
 	var generateRandomPassword = " ";
-	const generatePasswordLength = randomPasswordString.length;
+	// For loop to loop over randomPasswordString which contains the criteria & randomly generate password
 	for (var i = 0; i < length; i++) {
 		generateRandomPassword += randomPasswordString.charAt(
-			Math.floor(Math.random() * generatePasswordLength)
+			Math.floor(Math.random() * randomPasswordString.length)
 		);
 	}
 	return generateRandomPassword;
@@ -103,6 +103,8 @@ function writePassword() {
 	var passwordText = document.querySelector("#password");
 
 	passwordText.value = password;
+	// Reset the value to empty string to clear previous user selections
+	randomPasswordString = "";
 }
 
 // 1. On click of HTML button, event listener will call the writePassword function
