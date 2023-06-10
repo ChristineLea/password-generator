@@ -8,23 +8,23 @@ This is a basic JavaScript application which will generate a random password, if
 I created pseudo-code to determine how best to create the application.   As I am very new to learning JavaScript, the complete JavaScript code structure differs from my initial pseudo-code as I initially thought to use arrays.  My commits are also a little messy as this is the first application that I have written without guidance.
 
 **Issues I encountered & how I overcame them** 
-```
+
  1. Adding chosen character type/s to an array to generate random password.   
  
-    This was solved by using string values to hold the character types instead of arrays, then use the .concat() method to add each selected character type. I then tested this with console.log()
+    - This was solved by using string values to hold the character types instead of arrays, then use the .concat() method to add each selected character type. I then tested this with console.log()
 
   2. Generating the password to the length chosen by the user. 
 
-    I updated the for loop condition to be set at the user length, instead of the string of characters length.
+    - I updated the for loop condition to be set at the user length, instead of the string of characters length.
 
   3. Validation of the password criteria was not working as expected when I tested in the browser.     
 
-    I updated my code and added an IF statement to check if all criteria was NOT met, then exit the function and alert the user.  
+    - I updated my code and added an IF statement to check if all criteria was NOT met, then exit the function and alert the user.  
 
   4. Previous user selections were not been cleared if the password generator was run multiple times in the browser.     
 
-    On line 107, I updated the value of the variable which held user criteria selections to it's initial value of an empty string.
-  ```
+    - On line 107, I updated the value of the variable which held user criteria selections to it's initial value of an empty string.
+
 
 ## Installation
 
@@ -37,7 +37,7 @@ No installation required. This application will run in the browser.
 ---
 
 **This application has a dual use.**
-1. Visit the deployed application //HERE// to generate a random password.
+1. Visit the deployed application [Random Password Generator](https://christinelea.github.io/random-password-generator/) to generate a random password.
 - When a user selects the **Generate Password** button they will be prompted with further instructions.
 - To generate a password, certain criteria must be met from user input.  
 - Password length to be at least 8 characters and no more than 128 characters.

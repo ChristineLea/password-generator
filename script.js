@@ -72,7 +72,7 @@ function generatePassword() {
 		randomPasswordString = randomPasswordString.concat(numbers);
 	}
 
-	// Validate password criteria is met. If all criteria is false, criteria is not met. Exit the function.
+	// Validate password criteria is met. If all criteria is false, criteria is not met. Exit the application.
 	if (
 		!passwordSpecialCharacters &&
 		!passwordLowerCase &&
@@ -88,6 +88,7 @@ function generatePassword() {
 	// Variable will be given value of the randomly generated password.
 	var generateRandomPassword = " ";
 	// For loop to loop over randomPasswordString which contains the criteria & randomly generate password
+	// For loop condition is set to match the user's chosen password length, held in the length variable
 	for (var i = 0; i < length; i++) {
 		generateRandomPassword += randomPasswordString.charAt(
 			Math.floor(Math.random() * randomPasswordString.length)
