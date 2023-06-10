@@ -1,21 +1,33 @@
-// Assignment Code
+// Access the button in HTML with ID of #generate
 var generateBtn = document.querySelector("#generate");
 
+// Variable to hold password criteria options
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var upperCase = lowerCase.toUpperCase();
 var numbers = "1234567890";
 var specialCharacters = "!@#$%&*_";
 
+// Store the password criteria options to include as chosen by the user.
 var randomPasswordString = "";
+// Value will be updated when user has chosen length of password to generate.
 var length = 0;
 
+// 3. The generatePassword function is invoked.
 function generatePassword() {
 	window.alert(
-		"Choose at LEAST ONE of the following four password criteria, then enter password LENGTH when prompted. \n\nClick OK to Start"
+		"PASSWORD GENERATOR: \n\nWhen prompted: \n\n1. Choose at least one password criteria to include. \n\n2. Enter password length (Min. 8 - Max. 128 characters) \n\nClick OK to Start"
 	);
 
+	var passwordSpecialCharacters = window.confirm(
+		"\n\nPASSWORD CRITERIA \nInlcude Special Characters? \n\nOK for Yes or Cancel for No"
+	);
+	if (passwordSpecialCharacters) {
+		randomPasswordString = randomPasswordString.concat(specialCharacters);
+		// console.log(randomPasswordString);
+	}
+
 	var passwordLowerCase = window.confirm(
-		"\nInclude lowercase letters? \nOK for Yes or Cancel for No"
+		"\nInclude lowercase letters? \n\nOK for Yes or Cancel for No"
 	);
 	if (passwordLowerCase) {
 		randomPasswordString = randomPasswordString.concat(lowerCase);
@@ -23,7 +35,7 @@ function generatePassword() {
 	}
 
 	var passwordUpperCase = window.confirm(
-		"\nInclude UPPERCASE letters? \nOK for Yes or Cancel for No"
+		"\nInclude UPPERCASE letters? \n\nOK for Yes or Cancel for No"
 	);
 	if (passwordUpperCase) {
 		randomPasswordString = randomPasswordString.concat(upperCase);
@@ -31,18 +43,10 @@ function generatePassword() {
 	}
 
 	var passwordNumbers = window.confirm(
-		"\nInclude Numbers? \nOK for Yes or Cancel for No"
+		"\nInclude Numbers? \n\nOK for Yes or Cancel for No"
 	);
 	if (passwordNumbers) {
 		randomPasswordString = randomPasswordString.concat(numbers);
-		// console.log(randomPasswordString);
-	}
-
-	var passwordSpecialCharacters = window.confirm(
-		"\nInlcude Special Characters? \n\nOK for Yes or Cancel for No"
-	);
-	if (passwordSpecialCharacters) {
-		randomPasswordString = randomPasswordString.concat(specialCharacters);
 		// console.log(randomPasswordString);
 	} else {
 		alert("Did not meet password criteria. Please start again.");
@@ -72,15 +76,16 @@ function generatePassword() {
 		);
 	}
 	return generateRandomPassword;
-};
+}
 
-// Write password to the #password input
+// 2. The writePassword function is invoked which then invokes the generatePassword function
 function writePassword() {
 	var password = generatePassword();
+	// Write password to the #password input
 	var passwordText = document.querySelector("#password");
 
 	passwordText.value = password;
 }
 
-// Add event listener to generate button
+// 1. On click of HTML button, event listener will call the writePassword function
 generateBtn.addEventListener("click", writePassword);
