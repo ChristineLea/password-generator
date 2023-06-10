@@ -19,35 +19,35 @@ function generatePassword() {
 	);
 
 	var passwordSpecialCharacters = window.confirm(
-		"\n\nPASSWORD CRITERIA \nInlcude Special Characters? \n\nOK for Yes or Cancel for No"
+		"\nPASSWORD CRITERIA \n\nInlcude Special Characters? \n\nOK for Yes or Cancel for No"
 	);
 	if (passwordSpecialCharacters) {
 		randomPasswordString = randomPasswordString.concat(specialCharacters);
-		// console.log(randomPasswordString);
+	
 	}
 
 	var passwordLowerCase = window.confirm(
-		"\nInclude lowercase letters? \n\nOK for Yes or Cancel for No"
+		"\nPASSWORD CRITERIA \n\nInclude lowercase letters? \n\nOK for Yes or Cancel for No"
 	);
 	if (passwordLowerCase) {
 		randomPasswordString = randomPasswordString.concat(lowerCase);
-		// console.log(randomPasswordString);
+
 	}
 
 	var passwordUpperCase = window.confirm(
-		"\nInclude UPPERCASE letters? \n\nOK for Yes or Cancel for No"
+		"\nPASSWORD CRITERIA \n\nInclude UPPERCASE letters? \n\nOK for Yes or Cancel for No"
 	);
 	if (passwordUpperCase) {
 		randomPasswordString = randomPasswordString.concat(upperCase);
-		// console.log(randomPasswordString);
+
 	}
 
 	var passwordNumbers = window.confirm(
-		"\nInclude Numbers? \n\nOK for Yes or Cancel for No"
+		"\nPASSWORD CRITERIA \n\nInclude Numbers? \n\nOK for Yes or Cancel for No"
 	);
 	if (passwordNumbers) {
 		randomPasswordString = randomPasswordString.concat(numbers);
-		// console.log(randomPasswordString);
+
 	} else {
 		alert("Did not meet password criteria. Please start again.");
 		return;
