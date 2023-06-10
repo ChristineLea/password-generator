@@ -60,7 +60,7 @@ The application has the following appearance and functionality.
 
 ---
 
-Future features of this application include removing the pop-up boxes to use the application and implement a more user-friendly and appealing implementation of gathering the criteria for the password generator.
+Future features of this application include removing the pop-up boxes to use the application and implement a more user-friendly and appealing implementation of gathering the criteria for the password generator. I would also update the code so that if the criteria is not met the value "undefined" does not replace the placeholder text "Your Secure Password"
 
 ## Authors and Acknowledgment
 
