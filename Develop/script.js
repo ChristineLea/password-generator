@@ -16,8 +16,24 @@ var length = 0;
 function generatePassword() {
 	// alert() user with instructions.
 	window.alert(
-		"PASSWORD GENERATOR: \nWhen prompted: \n\n1. Choose at least one password criteria to include. \n\n2. Enter password length (Min. 8 - Max. 128 characters) \n\nClick OK to Start"
+		"PASSWORD GENERATOR: \nWhen prompted: \n\n1. Enter password length (Min. 8 - Max. 128 characters) \n\n2. Choose at least one password criteria to include.  \n\nClick OK to Start"
 	);
+
+	// prompt() to set length of password
+	var passwordLength = window.prompt(
+		"\nPassword length must be between 8 - 128 characters. \nEnter Password Length:"
+	);
+
+	if (passwordLength >= 8 && passwordLength <= 128) {
+		// return value is a string. change to number. save to length variable
+		+passwordLength;
+		length = passwordLength;
+	} else {
+		alert(
+			"Password length must be a minimum of 8 characters and maximum of 128 characters. Please start again."
+		);
+		return;
+	}
 
 	// confirm() criteria to include in password
 	var passwordSpecialCharacters = window.confirm(
@@ -53,22 +69,21 @@ function generatePassword() {
 	// If return value is true, add the numbers variable to randomPasswordString
 	if (passwordNumbers) {
 		randomPasswordString = randomPasswordString.concat(numbers);
-	};
+	}
 
-	// prompt() to set length of password
-	var passwordLength = window.prompt(
-		"\nPassword length must be between 8 - 128 characters. \nEnter Password Length:"
-	);
-
-	if (passwordLength >= 8 && passwordLength <= 128) {
-		// return value is a string. change to number. save to length variable
-		+passwordLength;
-		length = passwordLength;
-	} else {
-		alert(
-			"Password length must be a minimum of 8 characters and maximum of 128 characters. Please start again."
+	// Validate password criteria is met
+	if (
+		!passwordSpecialCharacters &&
+		!passwordLowerCase &&
+		!passwordUpperCase &&
+		!passwordNumbers
+	) {
+		window.alert(
+			"Password cannot be generated if no password criteria is selected. Please start again."
 		);
 		return;
+	} else {
+		window.alert("\n Your password will be generated and displayed on screen. \n\nThanks for using our random password generator.")
 	}
 
 	var generateRandomPassword = " ";
